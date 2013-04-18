@@ -220,8 +220,8 @@ namespace BLNotifications
 
             //TODO: implement buttons here.
 
-            string line1 = "Ask: " + notifications.Instance.MtGoxBuy.Substring(0, 7) + "\t Bid: " + notifications.Instance.MtGoxSell.Substring(0, 7);
-            string line2 = "Avg: " + notifications.Instance.MtGoxAvg.Substring(0, 7) + "\t Last: " + notifications.Instance.MtGoxLast.Substring(0, 7);
+            string line1 = "Ask: " + notifications.Instance.MtGoxBuy + "\t Bid: " + notifications.Instance.MtGoxSell;
+            string line2 = "Avg: " + notifications.Instance.MtGoxAvg + "\t Last: " + notifications.Instance.MtGoxLast;
             string line3 = "Server did not respond.";
 
             if (DMcLgLCD.LGLCD_DEVICE_BW == deviceType)
