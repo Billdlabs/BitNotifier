@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>BitNotifier</subject>
+		<subject>Bit Notifier</subject>
 		<author>##ID_STRING3##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -225,7 +225,6 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
-		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
 	</table>
 
 	<table name="BBControl">
@@ -1139,6 +1138,8 @@
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
 		<row><td>BILLD_LABS</td><td>ProgramFilesFolder</td><td>BILLDL~1|Billd Labs</td><td/><td>0</td><td/></row>
 		<row><td>BITNOTIFIER</td><td>BILLD_LABS</td><td>BITNOT~1|BitNotifier</td><td/><td>0</td><td/></row>
+		<row><td>BITNOTIFIER_1_3_0</td><td>BILLD_LABS</td><td>BITNOT~1|BitNotifier-1-3-0</td><td/><td>0</td><td/></row>
+		<row><td>BIT_NOTIFIER</td><td>BILLD_LABS</td><td>BITNOT~1|Bit Notifier</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
@@ -1146,7 +1147,7 @@
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>BITNOTIFIER</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>BIT_NOTIFIER</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -2773,7 +2774,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Billd Labs</td><td>0</td><td/><td>564255312</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Billd Labs</td><td>0</td><td/><td>-626933241</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>161597007</td></row>
@@ -3586,7 +3587,7 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>BitNotifier</td><td>0</td><td/><td>161595440</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>BitNotifier</td><td>0</td><td/><td>-1843296407</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Bit Notifier</td><td>0</td><td/><td>-626972601</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>161593679</td></row>
@@ -3876,8 +3877,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>161593679</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>161595727</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.BilldLabs.com</td><td>0</td><td/><td>564255312</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>Billd Labs</td><td>0</td><td/><td>564255312</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.BilldLabs.com</td><td>0</td><td/><td>-626933241</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Billd Labs</td><td>0</td><td/><td>-626933241</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>161593679</td></row>
 	</table>
 
@@ -4126,7 +4127,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{50B5B18D-9608-4403-B0D3-BDC3601C4440}</td></row>
 		<row><td>ISUSSignature</td><td>{42B10CEB-D941-4747-A5AF-E738BBC55BC0}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewSystemSearch,viewRelease,viewISToday,viewProject,viewUpdateService,viewSetupTypes,viewUpgradePaths,viewSetupDesign,viewRealSetupDesign,viewInstallScriptStd,viewCustomActions</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewSystemSearch,viewRelease,viewISToday,viewProject,viewUpdateService,viewSetupTypes,viewUpgradePaths,viewSetupDesign,viewRealSetupDesign,viewInstallScriptStd,viewCustomActions,viewAppFiles,viewObjects,viewSupportFiles</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4185,7 +4186,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
-		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
 	</table>
 
 	<table name="ListBox">
@@ -4503,9 +4503,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]BLNotifications.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{B1DB89D4-E036-429F-9DF3-455A129433B8}</td><td/></row>
-		<row><td>ProductName</td><td>BitNotifier</td><td/></row>
-		<row><td>ProductVersion</td><td>1.20.0001</td><td/></row>
+		<row><td>ProductCode</td><td>{875B8048-84CD-439E-B7ED-44632405B69B}</td><td/></row>
+		<row><td>ProductName</td><td>Bit Notifier</td><td/></row>
+		<row><td>ProductVersion</td><td>1.40.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4518,10 +4518,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>-1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;ISACTIONPROP3;ISACTIONPROP4</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;ISACTIONPROP3;ISACTIONPROP4;ISACTIONPROP1</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
-		<row><td>UpgradeCode</td><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td/></row>
+		<row><td>UpgradeCode</td><td>{C5056DB5-433C-4C20-9AB7-002E5359F242}</td><td/></row>
 		<row><td>_IsMaintenance</td><td>Change</td><td/></row>
 		<row><td>_IsSetupTypeMin</td><td>Typical</td><td/></row>
 	</table>
@@ -4563,7 +4563,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
-		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
 	</table>
 
 	<table name="Registry">
@@ -4793,8 +4792,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
-		<row><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td>1.00.0000</td><td>1.00.0000</td><td>1033</td><td>5</td><td/><td>ISACTIONPROP3</td><td>from1</td></row>
-		<row><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td>1.01.0000</td><td>1.01.0000</td><td>1033</td><td>5</td><td/><td>ISACTIONPROP4</td><td>from2</td></row>
+		<row><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td>1.0.0000</td><td></td><td>1033</td><td>5</td><td/><td>ISACTIONPROP4</td><td>from2</td></row>
+		<row><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td>1.00.0000</td><td></td><td>1033</td><td>5</td><td/><td>ISACTIONPROP3</td><td>from1</td></row>
+		<row><td>{347AF82C-D14A-4AAE-8566-4DC340215857}</td><td>1.20.0001</td><td>1.20.0001</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>BL 1.20.0001</td></row>
 	</table>
 
 	<table name="Verb">

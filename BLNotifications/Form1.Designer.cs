@@ -53,6 +53,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -260,10 +261,11 @@
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewWebsiteToolStripMenuItem,
-            this.aboutToolStripMenuItem1});
+            this.aboutToolStripMenuItem1,
+            this.settingsToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.aboutToolStripMenuItem.Text = "Info";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // viewWebsiteToolStripMenuItem
             // 
@@ -278,6 +280,13 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
             this.aboutToolStripMenuItem1.Text = "Copy Donation Address";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -351,7 +360,7 @@
             this.txtCalcDollarTotal.Name = "txtCalcDollarTotal";
             this.txtCalcDollarTotal.Size = new System.Drawing.Size(100, 20);
             this.txtCalcDollarTotal.TabIndex = 21;
-            this.txtCalcDollarTotal.Text = "$0.00";
+            this.txtCalcDollarTotal.Text = "0.00";
             // 
             // label17
             // 
@@ -409,7 +418,7 @@
             this.txtCalcBreakShort.Name = "txtCalcBreakShort";
             this.txtCalcBreakShort.Size = new System.Drawing.Size(100, 20);
             this.txtCalcBreakShort.TabIndex = 16;
-            this.txtCalcBreakShort.Text = "$0.00";
+            this.txtCalcBreakShort.Text = "0.00";
             // 
             // label15
             // 
@@ -427,7 +436,7 @@
             this.txtCalcBreakSell.Name = "txtCalcBreakSell";
             this.txtCalcBreakSell.Size = new System.Drawing.Size(100, 20);
             this.txtCalcBreakSell.TabIndex = 14;
-            this.txtCalcBreakSell.Text = "$0.00";
+            this.txtCalcBreakSell.Text = "0.00";
             // 
             // txtCalcUFees
             // 
@@ -436,7 +445,7 @@
             this.txtCalcUFees.Name = "txtCalcUFees";
             this.txtCalcUFees.Size = new System.Drawing.Size(100, 20);
             this.txtCalcUFees.TabIndex = 13;
-            this.txtCalcUFees.Text = "$0.00";
+            this.txtCalcUFees.Text = "0.00";
             // 
             // txtCalcBFees
             // 
@@ -461,9 +470,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(9, 174);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.Size = new System.Drawing.Size(60, 13);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Total Fees ($):";
+            this.label13.Text = "Total Fees:";
             // 
             // label12
             // 
@@ -524,9 +533,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(9, 46);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Price ($):";
+            this.label9.Text = "Price:";
             // 
             // txtCalcBtc
             // 
@@ -555,7 +564,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BitNotifier";
-            this.Text = "BitNotifier - Alpha Version";
+            this.Text = "Bit Notifier - Alpha";
             this.Load += new System.EventHandler(this.Notification_Load);
             this.Resize += new System.EventHandler(this.Notification_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -620,6 +629,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtCalcBtcTotal;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

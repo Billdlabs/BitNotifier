@@ -41,6 +41,8 @@ namespace BLNotifications
                 return instance;
             }
         }
+
+        //various globally accessable properties.
         public event PropertyChangedEventHandler PropertyChanged;
         public string MtGoxAvg { get; set; }
         public string MtGoxBuy { get; set; }
@@ -52,6 +54,8 @@ namespace BLNotifications
         public string MtGoxVol { get; set; }
         public bool ResponseGood { get; set; }
         public MtGoxResponse MtGoxResponse { get; set; }
+        public Uri RequestURI { get; set; }
+        public int CurrencyNumber { get; set; }
         
         //api props
         public string MtGoxSecret { get; set; }
@@ -72,12 +76,67 @@ namespace BLNotifications
             
         }
 
+        public void UpdateCurrency()
+        {
+            switch (CurrencyNumber)
+            {
+                case 0:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCUSD/ticker");
+                    break;
+                case 1:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCAUD/ticker");
+                    break;
+                case 2:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCCAD/ticker");
+                    break;
+                case 3:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCCHF/ticker");
+                    break;
+                case 4:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCCNY/ticker");
+                    break;
+                case 5:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCDKK/ticker");
+                    break;
+                case 6:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCEUR/ticker");
+                    break;
+                case 7:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCGBP/ticker");
+                    break;
+                case 8:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCHKD/ticker");
+                    break;
+                case 9:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCJPY/ticker");
+                    break;
+                case 10:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCNZD/ticker");
+                    break;
+                case 11:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCPLN/ticker");
+                    break;
+                case 12:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCRUB/ticker");
+                    break;
+                case 13:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCSEK/ticker");
+                    break;
+                case 14:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCSGD/ticker");
+                    break;
+                case 15:
+                    RequestURI = new Uri("https://data.mtgox.com/api/1/BTCTHB/ticker");
+                    break;
+            }
+        }
+
         private void GoxCheck(object source, EventArgs e)
         {
             try
             {
                 MtGoxResponse tickerResponse;
-                var request = (HttpWebRequest)WebRequest.Create("https://mtgox.com/api/1/BTCUSD/ticker");
+                var request = (HttpWebRequest)WebRequest.Create(RequestURI);
                 request.Timeout = 60000;
                 request.Method = "GET";
                 request.Headers.Add(HttpRequestHeader.AcceptCharset, "utf-8");

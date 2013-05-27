@@ -137,7 +137,8 @@ namespace BLNotifications
         private void Notification_Load(object sender, EventArgs e)
         {
             notifications.Instance.PropertyChanged += CallBackFunction;
-
+            notifications.Instance.CurrencyNumber = Settings.Default.currency;
+            notifications.Instance.UpdateCurrency();
             if (DMcLgLCD.ERROR_SUCCESS == DMcLgLCD.LcdInit())
             {
                 lcdEnabled = true;
@@ -207,45 +208,51 @@ namespace BLNotifications
 
         private void UpdateLCD()
         {
-            Font sFont;
-
-            Graphics g = Graphics.FromImage(LCD);
-            g.Clear(Color.White);
-            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-
-            if(DMcLgLCD.LGLCD_DEVICE_BW == deviceType)
-                sFont = new Font("Arial", 7, FontStyle.Regular);
-            else
-                sFont = new Font("Arial", 14, FontStyle.Regular);
-
-            //TODO: implement buttons here.
-
-            string line1 = "Ask: " + notifications.Instance.MtGoxBuy + "\t Bid: " + notifications.Instance.MtGoxSell;
-            string line2 = "Avg: " + notifications.Instance.MtGoxAvg + "\t Last: " + notifications.Instance.MtGoxLast;
-            string line3 = "Server did not respond.";
-
-            if (DMcLgLCD.LGLCD_DEVICE_BW == deviceType)
+            //make sure we have results before displaying them.
+            if (notifications.Instance.MtGoxLast != null)
             {
-                g.DrawString(line1, sFont, SystemBrushes.WindowText, 0, 0);
-                g.DrawString(line2, sFont, Brushes.Black, 0, 10);
-                if (!notifications.Instance.ResponseGood)
+                Font sFont;
+
+                Graphics g = Graphics.FromImage(LCD);
+                g.Clear(Color.White);
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+
+                if (DMcLgLCD.LGLCD_DEVICE_BW == deviceType)
+                    sFont = new Font("Arial", 7, FontStyle.Regular);
+                else
+                    sFont = new Font("Arial", 14, FontStyle.Regular);
+
+                //TODO: implement buttons here.
+
+                string line1 = "Ask: " + notifications.Instance.MtGoxBuy + "\t Bid: " +
+                               notifications.Instance.MtGoxSell;
+                string line2 = "Avg: " + notifications.Instance.MtGoxAvg + "\t Last: " +
+                               notifications.Instance.MtGoxLast;
+                string line3 = "Server did not respond.";
+
+                if (DMcLgLCD.LGLCD_DEVICE_BW == deviceType)
                 {
-                    g.DrawString(line3,sFont,Brushes.Black,0,30);
+                    g.DrawString(line1, sFont, SystemBrushes.WindowText, 0, 0);
+                    g.DrawString(line2, sFont, Brushes.Black, 0, 10);
+                    if (!notifications.Instance.ResponseGood)
+                    {
+                        g.DrawString(line3, sFont, Brushes.Black, 0, 30);
+                    }
+                    DMcLgLCD.LcdUpdateBitmap(device, LCD.GetHbitmap(), DMcLgLCD.LGLCD_DEVICE_BW);
                 }
-                DMcLgLCD.LcdUpdateBitmap(device, LCD.GetHbitmap(), DMcLgLCD.LGLCD_DEVICE_BW);
-            }
-            else
-            {
-                g.DrawString(line1, sFont, Brushes.Black, 0, 0);
-                g.DrawString(line2, sFont, Brushes.Black, 0, 15);
-                if (!notifications.Instance.ResponseGood)
+                else
                 {
-                    g.DrawString(line3,sFont,Brushes.Black,0,35);
+                    g.DrawString(line1, sFont, Brushes.Black, 0, 0);
+                    g.DrawString(line2, sFont, Brushes.Black, 0, 15);
+                    if (!notifications.Instance.ResponseGood)
+                    {
+                        g.DrawString(line3, sFont, Brushes.Black, 0, 35);
+                    }
+                    DMcLgLCD.LcdUpdateBitmap(device, LCD.GetHbitmap(), DMcLgLCD.LGLCD_DEVICE_QVGA);
                 }
-                DMcLgLCD.LcdUpdateBitmap(device, LCD.GetHbitmap(), DMcLgLCD.LGLCD_DEVICE_QVGA);
+                sFont.Dispose();
+                g.Dispose();
             }
-            sFont.Dispose();
-            g.Dispose();
         }
 
 
@@ -380,11 +387,11 @@ namespace BLNotifications
             txtCalcSpend.Text = spend.ToString(CultureInfo.InvariantCulture);
 
             txtCalcBFees.Text = feeBtc.ToString(CultureInfo.InvariantCulture) + Resources.BTC;
-            txtCalcUFees.Text = Resources.dollarsign + feeDollar.ToString(CultureInfo.InvariantCulture);
+            txtCalcUFees.Text = feeDollar.ToString(CultureInfo.InvariantCulture);
             txtCalcBtcTotal.Text = totalBtc.ToString(CultureInfo.InvariantCulture) + Resources.BTC;
-            txtCalcDollarTotal.Text = Resources.dollarsign + totalDollar.ToString(CultureInfo.InvariantCulture);
-            txtCalcBreakSell.Text = Resources.dollarsign + breakSell.ToString(CultureInfo.InvariantCulture);
-            txtCalcBreakShort.Text = Resources.dollarsign + breakShort.ToString(CultureInfo.InvariantCulture);
+            txtCalcDollarTotal.Text = totalDollar.ToString(CultureInfo.InvariantCulture);
+            txtCalcBreakSell.Text = breakSell.ToString(CultureInfo.InvariantCulture);
+            txtCalcBreakShort.Text = breakShort.ToString(CultureInfo.InvariantCulture);
         }
 
         private void txtCalcBtc_KeyPress(object sender, KeyPressEventArgs e)
@@ -432,6 +439,13 @@ namespace BLNotifications
         private void smbCalcFees_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateTotals((int)SenderTypes.Fees);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form settingsDialog = new Form2();
+            settingsDialog.ShowDialog(this);
+            settingsDialog.Dispose();
         }
     }
 }

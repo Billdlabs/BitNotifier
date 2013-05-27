@@ -19,21 +19,21 @@ namespace BLNotifications
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(notifications.Instance.MtGoxSecret))
-            {
-                txtSecret.Text = notifications.Instance.MtGoxSecret;
-            }
-            if (!string.IsNullOrEmpty(notifications.Instance.MtGoxApiKey))
-            {
-                txtKey.Text = notifications.Instance.MtGoxApiKey;
-            }
+            comboBox1.SelectedIndex = Properties.Settings.Default.currency;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            notifications.Instance.MtGoxApiKey = txtKey.Text;
-            notifications.Instance.MtGoxSecret = txtSecret.Text;
-            notifications.Instance.RefreshOrderHistory();
+            //notifications.Instance.MtGoxApiKey = txtKey.Text;
+            //notifications.Instance.MtGoxSecret = txtSecret.Text;
+            //notifications.Instance.RefreshOrderHistory();
+
+            //update the settings
+            Properties.Settings.Default.currency = comboBox1.SelectedIndex;
+            Properties.Settings.Default.Save();
+            notifications.Instance.CurrencyNumber = Properties.Settings.Default.currency;
+            notifications.Instance.UpdateCurrency();
+            MessageBox.Show("Changes will be displayed with the next update from Mt. Gox");
             Close();
         }
 
